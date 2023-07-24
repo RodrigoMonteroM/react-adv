@@ -4,6 +4,7 @@ import {lazy} from "react";
 //import About from '../pages/About'
 //import Users from '../pages/Users'
 import {routes} from "./routes";
+import NavigationLazy from '../01-lazyload/router/NavigationLazy';
 
 
 
@@ -17,7 +18,7 @@ const Navigation = () => {
             return <Route key={route.name} path={route.path} element={<route.Component />} />
           })
         }
-
+        {/* <NavigationLazy /> */}
       </Routes>
     </BrowserRouter>
   )
