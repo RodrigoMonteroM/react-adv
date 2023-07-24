@@ -1,16 +1,23 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {lazy} from "react"; 
 //import Home from '../pages/home'
 //import About from '../pages/About'
 //import Users from '../pages/Users'
-import { LazyPage, LazyPage2, LazyPage3 } from '../01-lazyload/pages'
+import {routes} from "./routes";
+
+
+
 
 const Navigation = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<LazyPage />}/>
-        <Route path='/lazypage2' element={<LazyPage2 />}/>
-        <Route path='/lazypage3' element={<LazyPage3 />}/>
+        {
+          routes.map((route) => {
+            return <Route key={route.name} path={route.path} element={<route.Component />} />
+          })
+        }
+
       </Routes>
     </BrowserRouter>
   )

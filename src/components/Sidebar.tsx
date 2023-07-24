@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
 import ReactIcon from "../assets/img/react-js-icon.svg";
+import {routes} from "../routes/routes";
+
+
 const Sidebar = () => {
   return (
     <div className="h-screen bg-blue-500 flex flex-col items-center">
       <img src={ReactIcon} className="w-24 h-24 my-10" />
-      <Link to="/">lazy1</Link>
-      <Link to="/lazypage2">Lazy2</Link>
-      <Link to="/lazypage3">lazy3</Link>
+      {
+        routes.map((route) => {
+          return <Link key={route.name} to={route.to} >{route.name}</Link>
+        })
+      }
     </div>
   );
 };
